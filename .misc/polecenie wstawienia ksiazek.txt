@@ -1,0 +1,92 @@
+db.books.insertMany([
+    {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "author": "J.K. Rowling",
+        "releaseYear": 1997,
+        "publisher": "Bloomsbury",
+        "category": "Fantasy",
+        "price": 29.99,
+        "description": "Pierwsza książka z serii o czarodzieju Harrym Potterze, który odkrywa swoje magiczne zdolności i zostaje przyjęty do szkoły magii Hogwarts."
+    },
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "releaseYear": 1960,
+        "publisher": "J.B. Lippincott & Co.",
+        "category": "Literatura klasyczna",
+        "price": 24.99,
+        "description": "Klasyczna powieść, która ukazuje tematy rasizmu i niesprawiedliwości w południowych Stanach Zjednoczonych w latach 30. XX wieku."
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "releaseYear": 1925,
+        "publisher": "Charles Scribner's Sons",
+        "category": "Literatura klasyczna",
+        "price": 22.99,
+        "description": "Historia o amerykańskim marzeniu i jego upadku, osadzona w okresie jazzowej epoki lat 20. XX wieku."
+    },
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "releaseYear": 1813,
+        "publisher": "T. Egerton, Whitehall",
+        "category": "Literatura klasyczna",
+        "price": 19.99,
+        "description": "Klasyczna powieść o miłości, duma i uprzedzenie, która śledzi losy rodzeństwa Bennetów w XIX-wiecznej Anglii."
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "releaseYear": 1949,
+        "publisher": "Secker & Warburg",
+        "category": "Fikcja naukowa",
+        "price": 18.99,
+        "description": "Klasyczna powieść dystopijna, która opowiada historię społeczeństwa kontrolowanego przez totalitarny reżim i nadzorowane przez Wielkiego Brata."
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "releaseYear": 1951,
+        "publisher": "Little, Brown and Company",
+        "category": "Literatura klasyczna",
+        "price": 21.99,
+        "description": "Klasyczna powieść, która śledzi losy nastolatka Holdena Caulfielda podczas jego długiego spaceru po Nowym Jorku."
+    },
+    {
+        "title": "Lord of the Flies",
+        "author": "William Golding",
+        "releaseYear": 1954,
+        "publisher": "Faber and Faber",
+        "category": "Literatura klasyczna",
+        "price": 23.99,
+        "description": "Klasyczna powieść, która ukazuje upadek cywilizacji i degenerację ludzkiego zachowania, gdy grupa chłopców zostaje pozostawiona sama sobie na bezludnej wyspie."
+    },
+    {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "releaseYear": 1937,
+        "publisher": "George Allen & Unwin",
+        "category": "Fantasy",
+        "price": 27.99,
+        "description": "Przygodowa powieść fantasy, która opowiada historię hobbita Bilbo Bagginsa, który wyrusza w podróż pełną niebezpieczeństw i przygód w poszukiwaniu skarbu."
+    },
+    {
+        "title": "To the Lighthouse",
+        "author": "Virginia Woolf",
+        "releaseYear": 1927,
+        "publisher": "Hogarth Press",
+        "category": "Literatura klasyczna",
+        "price": 20.99,
+        "description": "Nowatorowa powieść, która skupia się na życiu i relacjach rodziny Ramsayów oraz ich podróży do latarni morskiej w Szkocji."
+    },
+    {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "releaseYear": 1851,
+        "publisher": "Harper & Brothers",
+        "category": "Literatura klasyczna",
+        "price": 25.99,
+        "description": "Epos morski, który opowiada historię kapitana Ahaba i jego obsesji na tropienie białego wieloryba Moby Dicka."
+    }
+])

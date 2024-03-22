@@ -1,0 +1,161 @@
+{
+  "id": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+  "name": "API",
+  "timestamp": 1710266849930,
+  "requests": [
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "0c156706-5035-2d1f-c26e-c929d0c291ba",
+      "name": "Ksiażki o danej kategorii",
+      "description": "",
+      "url": "http://localhost:3000/api/books/category/fantasy",
+      "method": "GET",
+      "headers": "",
+      "data": [],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710357492238
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "1e2888ae-38bf-6259-855c-b6ea3e0e700a",
+      "name": "Ksiażki",
+      "description": "",
+      "url": "http://localhost:3000/api/books",
+      "method": "GET",
+      "headers": "",
+      "data": [],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710355221268
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "2ab4958f-b807-8c5f-c6fe-bb33e9ea35dc",
+      "name": "Ksiażka o danym id",
+      "description": "",
+      "url": "http://localhost:3000/api/books/65f1fe04131f296955c0b1da",
+      "method": "GET",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "marianowski@gmail.com", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710358082667
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "3d698b16-1cf2-be55-6437-bf69ec5dbf3d",
+      "name": "Ksiażka wg roku wydania",
+      "description": "",
+      "url": "http://localhost:3000/api/books/year/1997",
+      "method": "GET",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "marianowski@gmail.com", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710358307070
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "49b75660-bbf5-1900-8312-b581af8ec3b8",
+      "name": "Aktywacja konta",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/activate/{token}",
+      "method": "GET",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710440791235
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "8f1d2599-95b2-0a20-8d34-00eacc734d56",
+      "name": "Resetowanie hasła - zmiana na nowe",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/password/reset/change",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "newPassword", "value": "marianowski97", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710529826873
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "d1bc5c5a-5e04-61cb-0bd9-4e7402d8d4fd",
+      "name": "Logowanie",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/login",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski99", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710529426622
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "ea50cdcd-6ac5-9048-f7c3-b410ed005b8a",
+      "name": "Resetowanie hasła - email",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/password/reset",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710529008784
+    },
+    {
+      "collectionId": "1a9affb2-6387-3b02-f0ab-5691d3f54281",
+      "id": "f1e4ddb3-30fd-4f8a-fc29-24cc5b8fc265",
+      "name": "Rejestracja",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/register",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1710440427503
+    }
+  ]
+}
