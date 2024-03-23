@@ -8,10 +8,10 @@ const authController = new AuthController()
 
 router.post('/login', 
     accountStatusMiddleware.checkStatus, 
-    jwtMiddleware.checkToken,
     async (req, res, next) => {
-    await authController.login(req, res, next)
-});
+        await authController.login(req, res, next)
+    }        
+);
 
 router.post('/register', async (req, res, next) => {
     await authController.registration(req, res, next);

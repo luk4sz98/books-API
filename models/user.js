@@ -9,9 +9,13 @@ const userSchema = new mongoose.Schema({
   password: String,
   status: { type: Number, default: AccountStatus.INACTIVE },
   role: { type: Number, default: UserRole.STANDARD },
-  jwtToken: String,
   activationToken: String
 });
+
+userSchema.methods.toDto = function() {
+  const { password, activationToken, ...userDto } = this.toObject();
+  return userDto;
+};
 
 const UserModel = mongoose.model('User', userSchema);
 

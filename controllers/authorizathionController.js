@@ -25,18 +25,32 @@ class AuthController {
             }
     
             // Generowanie tokena JWT
-            const token = jwt.sign({ userId: user._id }, 'secretKey', { expiresIn: '4h' });
-            const result = await UserModel.updateOne({ _id: user._id }, { $set: { jwtToken: token } });
+            const token = jwt.sign(user.toDto(), this.#securityManager.getTokenAccessKey(), { expiresIn: '1h' });
+            res.status(200).json({ accessToken: token });
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async logout(req, res, next) {
+        try {
+            // usunięcie tokenu z bazy
+            const email  = req.body.email;
+            const user = await UserModel.findOne({ email: email });
+
+            if (!user) {
+                return res.status(400).json({ message: 'Nieprawidłowy adresz email lub hasło.' });
+            }
+
+            const result = await UserModel.updateOne({ _id: user._id }, { $set: { jwtToken: "" } });
 
             if (result.modifiedCount == 1) {
-                res.cookie('token', token, { httpOnly: true, maxAge: 4 * 60 * 60 * 1000 })
-                   .status(200)
-                   .json({ token: token }); 
+                res.status(200).json({ token: token }); 
             } else {
                 throw new Error('Wystąpił błąd')
             }
         } catch (error) {
-            next(error)
+            next(error);
         }
     }
 

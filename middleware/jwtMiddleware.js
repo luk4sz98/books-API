@@ -1,6 +1,27 @@
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user');
 
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers.authorization
+    if (!authHeader) {
+        return res.status(401).json({ message: 'Brak tokenu.' });
+    }
+
+    const token = authHeader.split(' ')[1] // Beaer jwt_token
+
+    if (!token) {
+        return res.status(400).json({ message: 'Nieprawidłowy format.' });
+    }
+    
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) {
+            return res.sendStatus(403);
+        }
+        req.user = user;
+        next();
+    })
+}
+
 const checkToken = async (req, res, next) => {
     try {
         const token = req.cookies.token;
@@ -16,7 +37,7 @@ const checkToken = async (req, res, next) => {
         }
 
         if (user.jwtToken !== token) {
-            return next();
+            return next() ;
         }
 
         const expirationDate = new Date(decodedToken.exp * 1000);
@@ -30,5 +51,6 @@ const checkToken = async (req, res, next) => {
 };
 
 module.exports = {
+    authenticateToken,
     checkToken
 }
