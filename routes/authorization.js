@@ -13,6 +13,13 @@ router.post('/login',
     }        
 );
 
+router.post('/logout',
+    jwtMiddleware.authenticateToken,
+    async (req, res, next) => {
+        await authController.logout(req, res, next);
+    }
+)
+
 router.post('/register', async (req, res, next) => {
     await authController.registration(req, res, next);
 })
@@ -28,5 +35,11 @@ router.post('/password/reset/change', async (req, res, next) => {
 router.get('/activate/:token', async (req, res) => {
     await authController.activate(req, res);
 });
+
+//endpoint do ponownego wysłania linku aktywacyjnego
+//formularz przyjmuje adres email
+router.post('/reactivate', async (req, res, next) => {
+    await authController.reactivate(req, res, next);
+})
 
 module.exports = router;

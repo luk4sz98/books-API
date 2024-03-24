@@ -1,5 +1,4 @@
 const UserModel = require('../models/user');
-const jwt = require('jsonwebtoken');
 const EmailSender = require('../services/emailSender');
 const AccountStatus = require('../models/accountStatus');
 const SecurityManager = require('../services/securityManager');
@@ -25,7 +24,7 @@ class AuthController {
             }
     
             // Generowanie tokena JWT
-            const token = jwt.sign(user.toDto(), this.#securityManager.getTokenAccessKey(), { expiresIn: '1h' });
+            const token = this.#securityManager.createJwtToken(user.toDto());
             res.status(200).json({ accessToken: token });
         } catch (error) {
             next(error)
@@ -34,7 +33,7 @@ class AuthController {
 
     async logout(req, res, next) {
         try {
-            // usunięcie tokenu z bazy
+            // usuniecie refresh tokenu z bazy
             const email  = req.body.email;
             const user = await UserModel.findOne({ email: email });
 
@@ -62,14 +61,15 @@ class AuthController {
                 return res.status(400).json({ message: this.#invalidDataMsg})
             }
 
-            const newUser = await this.#createUser(firstName, lastName, email, password);
+            const newUser = await this.#createUser(firstName, lastName, email, password)
+            const activationToken = this.#securityManager.createJwtToken({ email: newUser.email }, true);
             const result = await this.#emailSender
-                .sendActivationEmail(newUser.email, newUser.activationToken);
+                .sendActivationEmail(newUser.email, activationToken);
 
             if (result) {
                 await newUser.save();
                 res.status(200)
-                   .json({ message: 'Użytkownik został pomyślnie zarejestrowany. Link aktywacyjny został przesłany na konto' });
+                   .json({ activationToken: activationToken });
             } else {
                 res.status(500).json({ message: 'Wystąpił błąd podczas wysyłania wiadomości e-mail. Konto nie zostało utworzone' });
             }
@@ -80,7 +80,11 @@ class AuthController {
 
     async activate(req, res) {
         const token = req.params.token;
-        const user = await UserModel.findOne({ activationToken: token });
+        const payload = this.#securityManager.verifyJwtToken(token, true);
+        if (!payload) {
+            return res.status(400).json({ message: 'Nieprawidłowy token aktywacyjny' });
+        }
+        const user = await UserModel.findOne({ email: payload.email });
         if (user) {
             if (user.status == AccountStatus.ACTIVE) {
                 return res.status(400).json({ message: 'Konto już zostało aktywowane.' });
@@ -92,6 +96,27 @@ class AuthController {
         } else {
             res.status(404).
                 send({ message: 'Nieprawidłowy token aktywacyjny.' });
+        }
+    }
+
+    async reactivate(req, res, next) {
+        try {
+            const email = req.body.email;
+            const user = await UserModel.findOne({ email: email, status: AccountStatus.INACTIVE});
+            if (!user) {
+                return res.status(404).json({ message: 'Nieprawidłowy adres email lub konto zostało już aktywowane.'});
+            }
+
+            const activationToken = this.#securityManager.createJwtToken({ email: user.email }, true);
+            const result = await this.#emailSender
+                .sendActivationEmail(user.email, activationToken);
+            if (result) {
+                res.status(200).json({ activationToken: activationToken });
+            } else {
+                res.status(500).json({ message: 'Wystąpił błąd podczas wysyłania wiadomości e-mail. Konto nie zostało utworzone' });
+            }
+        } catch (error) {
+            next(error);
         }
     }
 
@@ -152,14 +177,12 @@ class AuthController {
 
     async #createUser(firstName, lastName, email, password) {
         const hashedPassword = await this.#securityManager.hashString(password);
-        const activationToken = this.#securityManager.generateToken();
 
         return new UserModel({
             firstName: firstName,
             lastName: lastName,
             email: email,
             password: hashedPassword,
-            activationToken: activationToken
         })
     }
 }

@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   status: { type: Number, default: AccountStatus.INACTIVE },
   role: { type: Number, default: UserRole.STANDARD },
-  activationToken: String
+  refreshToken: String
 });
 
 userSchema.methods.toDto = function() {
