@@ -20,7 +20,7 @@ class SecurityManager {
     }
 
     createRefreshToken(payload) {
-        return this.#createJwtToken(payload, this.#getTokenSecretKey(TokenType.REFRESH))
+        return this.#createJwtToken(payload, this.#getTokenSecretKey(TokenType.REFRESH), '30d')
     }
 
     verifyAccessToken(token) {
@@ -31,6 +31,10 @@ class SecurityManager {
         return this.#verifyJwtToken(token, this.#getTokenSecretKey(TokenType.ACTIVATION));
     }
 
+    verifyRefreshToken(token) {
+        return this.#verifyJwtToken(token, this.#getTokenSecretKey(TokenType.REFRESH));
+    }
+
     generateToken() {
         return crypto.randomBytes(this.#size).toString('hex');
     }
@@ -39,9 +43,9 @@ class SecurityManager {
         return await bcrypt.compare(string, hash);
     }
 
-    #createJwtToken(payload, secretKey) {
+    #createJwtToken(payload, secretKey, expiresIn = null) {
         return jwt.sign(payload, secretKey, {
-            expiresIn: 600
+            expiresIn: expiresIn == null ? '10m' : expiresIn
         });
     }
 

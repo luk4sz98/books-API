@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.toDto = function() {
-  const { password, activationToken, ...userDto } = this.toObject();
+  const { password, activationToken, refreshToken, ...userDto } = this.toObject();
   return userDto;
 };
 

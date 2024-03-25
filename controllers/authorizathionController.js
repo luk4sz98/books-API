@@ -24,8 +24,13 @@ class AuthController {
             }
     
             // Generowanie tokena JWT
-            const token = this.#securityManager.createAccessToken(user.toDto());
-            res.status(200).json({ accessToken: token });
+            const userDto = user.toDto();
+            const token = this.#securityManager.createAccessToken(userDto);
+            const refreshToken = this.#securityManager.createRefreshToken(userDto);
+            user.refreshToken = refreshToken;
+            await user.save();
+            
+            res.status(200).json({ accessToken: token, refreshToken: refreshToken});
         } catch (error) {
             next(error)
         }
@@ -33,21 +38,19 @@ class AuthController {
 
     async logout(req, res, next) {
         try {
-            // usuniecie refresh tokenu z bazy
-            const email  = req.body.email;
-            const user = await UserModel.findOne({ email: email });
-
+            const refreshToken = req.body.refreshToken;
+            const payload = this.#securityManager.verifyRefreshToken(refreshToken);
+            if (!payload) {
+                return res.status(400).json({ message: 'Nieprawidłowy token.' });
+            }
+            const user = await UserModel.findOne({ email: payload.email, refreshToken: refreshToken});
             if (!user) {
-                return res.status(400).json({ message: 'Nieprawidłowy adresz email lub hasło.' });
+                return res.status(404).json({ message: 'Nie znaleziono użytkownika.' });
             }
+            user.refreshToken = null;
+            await user.save();
 
-            const result = await UserModel.updateOne({ _id: user._id }, { $set: { jwtToken: "" } });
-
-            if (result.modifiedCount == 1) {
-                res.status(200).json({ token: token }); 
-            } else {
-                throw new Error('Wystąpił błąd')
-            }
+            return res.sendStatus(204);
         } catch (error) {
             next(error);
         }
@@ -127,7 +130,7 @@ class AuthController {
             const user = await UserModel.findOne({ email: email });
 
             if (!user) {
-                return res.status(400).json({ message: 'Nieprawidłowy adres email.' });
+                return res.status(404).json({ message: 'Nieprawidłowy adres email.' });
             }
 
             const token = this.#securityManager.generateToken();
@@ -172,6 +175,30 @@ class AuthController {
                 .json({ message: 'Zaaktualizowano hasła' });
         } catch (error) {
             next(error)
+        }
+    }
+
+    async refreshToken(req, res, next) {
+        try {
+            const token = req.body.refreshToken;
+            const payload = this.#securityManager.verifyRefreshToken(token);
+            if (!payload) {
+                return res.status(403).json({ message: 'Token wygasł lub jest nieprawidłowy.' });
+            }
+            
+            const user = await UserModel.findOne({ email: payload.email });
+            if (!user) {
+                return res.status(404).json({ message: 'Nieprawidłowy adres email.' });
+            }
+
+            if (token !== user.refreshToken) {
+                return res.sendStatus(403);
+            }
+
+            const accessToken = this.#securityManager.createAccessToken(user.toDto());
+            res.status(200).json({ accessToken: accessToken});
+        } catch (error) {
+            next(error);
         }
     }
 

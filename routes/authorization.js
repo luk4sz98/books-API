@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const AuthController = require('../controllers/authorizathionController');
-const jwtMiddleware = require('../middleware/jwtMiddleware');
 const accountStatusMiddleware = require('../middleware/accountStatusMiddleware');
 
 const router = Router();
@@ -13,12 +12,9 @@ router.post('/login',
     }        
 );
 
-router.post('/logout',
-    jwtMiddleware.authenticateToken,
-    async (req, res, next) => {
+router.post('/logout', async (req, res, next) => {
         await authController.logout(req, res, next);
-    }
-)
+})
 
 router.post('/register', async (req, res, next) => {
     await authController.registration(req, res, next);
@@ -40,6 +36,12 @@ router.get('/activate/:token', async (req, res) => {
 //formularz przyjmuje adres email
 router.post('/reactivate', async (req, res, next) => {
     await authController.reactivate(req, res, next);
+})
+
+// endpoint do tworzenia nowego accessTokenu za pomocą refreshtokenu
+// w body musi być przesłany refreshToken
+router.post('/token', async (req, res, next) => {
+    await authController.refreshToken(req, res, next);
 })
 
 module.exports = router;
