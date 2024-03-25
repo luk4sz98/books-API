@@ -1,45 +1,49 @@
 {
-  "id": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+  "id": "70ddf017-1637-045f-4991-d6c56748cb0a",
   "name": "API",
   "timestamp": 1710266849930,
   "requests": [
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "27a3aec3-1036-a254-623c-ba2538325a9a",
-      "name": "Ksiażka o danym id",
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "04952c4f-0819-ba27-f100-1a61617609b9",
+      "name": "Resetowanie hasła - zmiana na nowe",
       "description": "",
-      "url": "http://localhost:3000/api/books/65f1fe04131f296955c0b1da",
-      "method": "GET",
+      "url": "http://localhost:3000/api/auth/password/reset/change",
+      "method": "POST",
       "headers": "",
       "data": [
-        { "key": "firstName", "value": "Łukasz", "type": "text" },
-        { "key": "lastName", "value": "Marianowski", "type": "text" },
-        { "key": "email", "value": "marianowski@gmail.com", "type": "text" },
-        { "key": "password", "value": "marianowski98", "type": "text" }
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "newPassword", "value": "marianowski97", "type": "text" }
       ],
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "5659bb70-4e9c-ac65-cbc7-baf7079a9dec",
-      "name": "Usunięcie ksiązki",
-      "description": "",
-      "url": "http://localhost:3000/api/books/65febe72d8de23d6774ce8d0",
-      "method": "DELETE",
-      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n",
-      "data": [],
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "51f2f3b2-6c0e-f050-9cc7-bfa286c2fee8",
+      "name": "Odświeżenie access tokenu",
+      "description": "Endpoint służący do odświeżenia accessTokenu przy pomocy refreshTokenu. ",
+      "url": "http://localhost:3000/api/auth/token",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        {
+          "key": "refreshToken",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEzODM4NzUsImV4cCI6MTcxMzk3NTg3NX0.i81JkFSINlV3uqF3bguvb5ap_iLxs9D4BsZnYX5ci7M",
+          "type": "text"
+        }
+      ],
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2,
-      "time": 1711279506706
+      "time": 1711384043020
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "58563555-6aff-f64e-54d3-610f3c17126a",
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "53d783c7-9bfa-7929-84ac-36a75855ac57",
       "name": "Rejestracja",
-      "description": "",
+      "description": "Endpoint służący do rejestracji. Nowo utworzone konto ma status nieaktywny uniemożlwiający logowanie. By móc się zalogować należy potwierdzić konto klikając w link przesłany na adres email podany w body tego requesta.",
       "url": "http://localhost:3000/api/auth/register",
       "method": "POST",
       "headers": "",
@@ -54,8 +58,66 @@
       "version": 2
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "6671d3fd-29d7-62af-ea30-183d9c7cd44c",
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "70ca8020-d7e8-63ce-d71c-53169aa73f85",
+      "name": "Logowanie",
+      "description": "User musi przesłać w body email oraz hasło.\nPo poprawnym logowaniu zostanie zwrócony accessToken umożliwiający dostęp do rzeczy, które wymagają autoryzacji. \nPonadto zwraca refreshToken umożliwiający odświeżenie accessTokenu jeśli wygasł bez konieczności przechodzenia przez proces logowania.\nTo gdzie będzie przechowywany accessToken zwrócony tym endpointem zależy już stricte od frontendu. \n\nZalogować mogą się tylko użytkownicy, którzy potwierdzili swoje konto.",
+      "url": "http://localhost:3000/api/auth/login",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711385859116
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "7c74d1c1-6a0b-47bf-4746-441de422b8a9",
+      "name": "Wylogowanie ",
+      "description": "Proces wylogowania wymaga podania refreshTokenu. Jeśli token ten jest prawidłowy i zgadza się z tym co siedzi w bazie, to zostanie on usunięty z bazy co automatycznie deautoryzuje. Czyli dany user będzie musiał się zalogować ponownie.",
+      "url": "http://localhost:3000/api/auth/logout",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        {
+          "key": "refreshToken",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEzODUxMTksImV4cCI6MTcxMzk3NzExOX0.swEp-Den42BZ4sW_Rwi2Gca8g0HYrsdEtVsHzif-qn0",
+          "type": "text"
+        }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711385127669
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "7d4bb21d-8de1-938d-dae8-68ceb47a7423",
+      "name": "Dodanie książki",
+      "description": "Wymaga autoryzacji prawidłowym access tokenem.",
+      "url": "http://localhost:3000/api/books",
+      "method": "POST",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTA5OTEsImV4cCI6MTcxMTE5NDU5MX0.qaY_FUYZQ2fUdPg2uamH_MuZOYQbnjEJ7l5L99gF6Xs\n",
+      "data": [
+        { "key": "title", "value": "Nowa", "type": "text" },
+        { "key": "author", "value": "Jan Kowalski", "type": "text" },
+        { "key": "category", "value": "Fantasy", "type": "text" },
+        { "key": "description", "value": "Fajna książka", "type": "text" },
+        { "key": "price", "value": "27.55", "type": "text" },
+        { "key": "publisher", "value": "Jedność", "type": "text" },
+        { "key": "releaseYear", "value": "2024", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "7ee7c028-8683-9c94-3055-9bc1841b5c47",
       "name": "Ksiażka wg roku wydania",
       "description": "",
       "url": "http://localhost:3000/api/books/year/1997",
@@ -72,81 +134,21 @@
       "version": 2
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "8322e552-a076-6f4a-ff06-949c93b52b1a",
-      "name": "Aktywacja konta",
-      "description": "",
-      "url": "http://localhost:3000/api/auth/activate/{token}",
-      "method": "GET",
-      "headers": "",
-      "data": [
-        { "key": "firstName", "value": "Łukasz", "type": "text" },
-        { "key": "lastName", "value": "Marianowski", "type": "text" },
-        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
-        { "key": "password", "value": "marianowski98", "type": "text" }
-      ],
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "84e6e5a4-19fd-26ca-967f-9ea10636a234",
+      "name": "Usunięcie ksiązki",
+      "description": "Wymaga autoryzacji prawidłowym access tokenem.",
+      "url": "http://localhost:3000/api/books/65febe72d8de23d6774ce8d0",
+      "method": "DELETE",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n",
+      "data": [],
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "92dac025-4b7b-f71d-a2f0-9b54cec5e3e0",
-      "name": "Dodanie książki",
-      "description": "",
-      "url": "http://localhost:3000/api/books",
-      "method": "POST",
-      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTA5OTEsImV4cCI6MTcxMTE5NDU5MX0.qaY_FUYZQ2fUdPg2uamH_MuZOYQbnjEJ7l5L99gF6Xs\n",
-      "data": [
-        { "key": "title", "value": "Nowa", "type": "text" },
-        { "key": "author", "value": "Jan Kowalski", "type": "text" },
-        { "key": "category", "value": "Fantasy", "type": "text" },
-        { "key": "description", "value": "Fajna książka", "type": "text" },
-        { "key": "price", "value": "27.55", "type": "text" },
-        { "key": "publisher", "value": "Jedność", "type": "text" },
-        { "key": "releaseYear", "value": "2024", "type": "text" }
-      ],
-      "dataMode": "urlencoded",
-      "timestamp": 0,
-      "version": 2,
-      "time": 1711192370616
-    },
-    {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "9c80a585-1cb7-00dd-dd26-707204cd341e",
-      "name": "Reaktywacja konta",
-      "description": "",
-      "url": "http://localhost:3000/api/auth/reactivate",
-      "method": "POST",
-      "headers": "",
-      "data": [
-        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" }
-      ],
-      "dataMode": "urlencoded",
-      "timestamp": 0,
-      "version": 2,
-      "time": 1711279190337
-    },
-    {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "b050f2d2-046e-d11f-b72d-a2419c618f78",
-      "name": "Logowanie",
-      "description": "",
-      "url": "http://localhost:3000/api/auth/login",
-      "method": "POST",
-      "headers": "",
-      "data": [
-        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
-        { "key": "password", "value": "marianowski98", "type": "text" }
-      ],
-      "dataMode": "urlencoded",
-      "timestamp": 0,
-      "version": 2,
-      "time": 1711188405101
-    },
-    {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "bf344f9f-b50b-0716-f223-022d0295554f",
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "a1fa5725-8831-2ce3-3cb9-88f7974322dd",
       "name": "Ksiażki",
       "description": "",
       "url": "http://localhost:3000/api/books",
@@ -158,10 +160,56 @@
       "version": 2
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "cd3ed7d0-4836-ecb8-7bfb-51970def4ed9",
-      "name": "Zaaktualizowanie książki",
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "a8dfd0be-e771-2b7d-8b8f-3073aae69e45",
+      "name": "Resetowanie hasła - email",
       "description": "",
+      "url": "http://localhost:3000/api/auth/password/reset",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "b69d12e1-7dda-28e1-e2a6-419e287ac274",
+      "name": "Ksiażki o danej kategorii",
+      "description": "",
+      "url": "http://localhost:3000/api/books/category/fantasy",
+      "method": "GET",
+      "headers": "",
+      "data": [],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "bbb3744c-dc16-35cc-4ae5-cdd0852dfa45",
+      "name": "Ksiażka o danym id",
+      "description": "",
+      "url": "http://localhost:3000/api/books/65f1fe04131f296955c0b1da",
+      "method": "GET",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "marianowski@gmail.com", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "d82b1a68-c5e5-728b-8d3d-3790afc0e59d",
+      "name": "Zaaktualizowanie książki",
+      "description": "Wymaga autoryzacji prawidłowym access tokenem.",
       "url": "http://localhost:3000/api/books/65febe72d8de23d6774ce8d0",
       "method": "PUT",
       "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTQ5NzYsImV4cCI6MTcxMTE5ODU3Nn0.VSPEtDYN-nn3jODrVOPfEifaBnd65wku9DjZ8Q-Ihl8\n",
@@ -176,28 +224,32 @@
       ],
       "dataMode": "urlencoded",
       "timestamp": 0,
-      "version": 2,
-      "time": 1711196330173
+      "version": 2
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "e603e7ef-5caa-5579-0da5-873324a5d4cf",
-      "name": "Ksiażki o danej kategorii",
-      "description": "",
-      "url": "http://localhost:3000/api/books/category/fantasy",
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "de790ca2-e4d9-b93b-abd2-ede4abdde244",
+      "name": "Aktywacja konta",
+      "description": "Endpoint służący do aktywacji konta. Powinien być w zasadzie odpalany tylko poprzez kliknięcie na link w przesłanej wiadomości email. Natomiast w celach testowych można oczywiście tutaj. Zamiast {token} należy wkleić wysłany token w mailu",
+      "url": "http://localhost:3000/api/auth/activate/{token}",
       "method": "GET",
       "headers": "",
-      "data": [],
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2
     },
     {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "edad5ff2-9896-42a7-4cef-3b846d59f7c2",
-      "name": "Resetowanie hasła - email",
-      "description": "",
-      "url": "http://localhost:3000/api/auth/password/reset",
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "f592deb2-8f76-58d9-d02a-0c297ae5daf6",
+      "name": "Reaktywacja konta",
+      "description": "Endpoint służący do ponownego wysłania linka aktywacyjnego konto na podany adres email.",
+      "url": "http://localhost:3000/api/auth/reactivate",
       "method": "POST",
       "headers": "",
       "data": [
@@ -206,37 +258,23 @@
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2
-    },
-    {
-      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
-      "id": "fb80e0aa-02cd-59c5-64c9-5a0a3289fe0a",
-      "name": "Resetowanie hasła - zmiana na nowe",
-      "description": "",
-      "url": "http://localhost:3000/api/auth/password/reset/change",
-      "method": "POST",
-      "headers": "",
-      "data": [
-        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
-        { "key": "newPassword", "value": "marianowski97", "type": "text" }
-      ],
-      "dataMode": "urlencoded",
-      "timestamp": 0,
-      "version": 2
     }
   ],
   "order": [
-    "b050f2d2-046e-d11f-b72d-a2419c618f78",
-    "58563555-6aff-f64e-54d3-610f3c17126a",
-    "8322e552-a076-6f4a-ff06-949c93b52b1a",
-    "9c80a585-1cb7-00dd-dd26-707204cd341e",
-    "edad5ff2-9896-42a7-4cef-3b846d59f7c2",
-    "fb80e0aa-02cd-59c5-64c9-5a0a3289fe0a",
-    "27a3aec3-1036-a254-623c-ba2538325a9a",
-    "6671d3fd-29d7-62af-ea30-183d9c7cd44c",
-    "e603e7ef-5caa-5579-0da5-873324a5d4cf",
-    "bf344f9f-b50b-0716-f223-022d0295554f",
-    "92dac025-4b7b-f71d-a2f0-9b54cec5e3e0",
-    "5659bb70-4e9c-ac65-cbc7-baf7079a9dec",
-    "cd3ed7d0-4836-ecb8-7bfb-51970def4ed9"
+    "70ca8020-d7e8-63ce-d71c-53169aa73f85",
+    "7c74d1c1-6a0b-47bf-4746-441de422b8a9",
+    "51f2f3b2-6c0e-f050-9cc7-bfa286c2fee8",
+    "53d783c7-9bfa-7929-84ac-36a75855ac57",
+    "de790ca2-e4d9-b93b-abd2-ede4abdde244",
+    "f592deb2-8f76-58d9-d02a-0c297ae5daf6",
+    "a8dfd0be-e771-2b7d-8b8f-3073aae69e45",
+    "04952c4f-0819-ba27-f100-1a61617609b9",
+    "bbb3744c-dc16-35cc-4ae5-cdd0852dfa45",
+    "7ee7c028-8683-9c94-3055-9bc1841b5c47",
+    "b69d12e1-7dda-28e1-e2a6-419e287ac274",
+    "a1fa5725-8831-2ce3-3cb9-88f7974322dd",
+    "7d4bb21d-8de1-938d-dae8-68ceb47a7423",
+    "84e6e5a4-19fd-26ca-967f-9ea10636a234",
+    "d82b1a68-c5e5-728b-8d3d-3790afc0e59d"
   ]
 }
