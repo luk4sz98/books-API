@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const TokenType = require('../helpers/tokenType');
 
 class SecurityManager {
     #saltRounds = 10;
@@ -10,23 +11,24 @@ class SecurityManager {
         return await bcrypt.hash(string, this.#saltRounds);
     }
 
-    createJwtToken(payload, isActivationToken = false) {
-        const accessKey = isActivationToken ? this.#getActivationTokenKey() : this.#getTokenAccessKey();
-        return jwt.sign(payload, accessKey, {
-            expiresIn: 600
-        });
+    createAccessToken(payload) {
+        return this.#createJwtToken(payload, this.#getTokenSecretKey(TokenType.ACCESS))
     }
 
-    verifyJwtToken(token, isActivationToken = false) {
-        let result = null;
-        const accessKey = isActivationToken ? this.#getActivationTokenKey() : this.#getTokenAccessKey();
-        jwt.verify(token, accessKey, (err, payload) => {
-            if (err) {
-                return null;
-            }
-            result = payload
-        });
-        return result;
+    createActivationToken(payload) {
+        return this.#createJwtToken(payload, this.#getTokenSecretKey(TokenType.ACTIVATION))
+    }
+
+    createRefreshToken(payload) {
+        return this.#createJwtToken(payload, this.#getTokenSecretKey(TokenType.REFRESH))
+    }
+
+    verifyAccessToken(token) {
+        return this.#verifyJwtToken(token, this.#getTokenSecretKey(TokenType.ACCESS));
+    }
+
+    verifyActivationToken(token) {
+        return this.#verifyJwtToken(token, this.#getTokenSecretKey(TokenType.ACTIVATION));
     }
 
     generateToken() {
@@ -37,16 +39,34 @@ class SecurityManager {
         return await bcrypt.compare(string, hash);
     }
 
-    #getTokenAccessKey() {
-        return process.env.ACCESS_TOKEN_SECRET;
+    #createJwtToken(payload, secretKey) {
+        return jwt.sign(payload, secretKey, {
+            expiresIn: 600
+        });
     }
 
-    #getRefreshTokenKey() {
-        return process.env.REFRESH_TOKEN_SECRET;
+    #verifyJwtToken(token, secretKey) {
+        let result = null;
+        jwt.verify(token, secretKey, (err, payload) => {
+            if (err) {
+                return null;
+            }
+            result = payload
+        });
+        return result;
     }
 
-    #getActivationTokenKey() {
-        return process.env.ACTIVATION_TOKEN_SECRET;
+    #getTokenSecretKey(tokenType) {
+        switch (tokenType) {
+            case TokenType.ACCESS:
+                return process.env.ACCESS_TOKEN_SECRET;
+            case TokenType.ACTIVATION:
+                return process.env.ACTIVATION_TOKEN_SECRET;
+            case TokenType.REFRESH:
+                return process.env.REFRESH_TOKEN_SECRET;
+            default:
+                throw new Error("Nieobsługiwany typ tokenu.");
+        }
     }
 }
 

@@ -24,7 +24,7 @@ class AuthController {
             }
     
             // Generowanie tokena JWT
-            const token = this.#securityManager.createJwtToken(user.toDto());
+            const token = this.#securityManager.createAccessToken(user.toDto());
             res.status(200).json({ accessToken: token });
         } catch (error) {
             next(error)
@@ -62,7 +62,7 @@ class AuthController {
             }
 
             const newUser = await this.#createUser(firstName, lastName, email, password)
-            const activationToken = this.#securityManager.createJwtToken({ email: newUser.email }, true);
+            const activationToken = this.#securityManager.createActivationToken({ email: newUser.email }, true);
             const result = await this.#emailSender
                 .sendActivationEmail(newUser.email, activationToken);
 
@@ -80,7 +80,7 @@ class AuthController {
 
     async activate(req, res) {
         const token = req.params.token;
-        const payload = this.#securityManager.verifyJwtToken(token, true);
+        const payload = this.#securityManager.verifyActivationToken(token, true);
         if (!payload) {
             return res.status(400).json({ message: 'Nieprawidłowy token aktywacyjny' });
         }
@@ -107,7 +107,7 @@ class AuthController {
                 return res.status(404).json({ message: 'Nieprawidłowy adres email lub konto zostało już aktywowane.'});
             }
 
-            const activationToken = this.#securityManager.createJwtToken({ email: user.email }, true);
+            const activationToken = this.#securityManager.createActivationToken({ email: user.email }, true);
             const result = await this.#emailSender
                 .sendActivationEmail(user.email, activationToken);
             if (result) {
