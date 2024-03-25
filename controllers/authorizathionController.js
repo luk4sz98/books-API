@@ -23,7 +23,6 @@ class AuthController {
                 return res.status(400).json({ message: this.#invalidDataMsg });
             }
     
-            // Generowanie tokena JWT
             const userDto = user.toDto();
             const token = this.#securityManager.createAccessToken(userDto);
             const refreshToken = this.#securityManager.createRefreshToken(userDto);

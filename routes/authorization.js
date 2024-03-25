@@ -13,7 +13,7 @@ router.post('/login',
 );
 
 router.post('/logout', async (req, res, next) => {
-        await authController.logout(req, res, next);
+    await authController.logout(req, res, next);
 })
 
 router.post('/register', async (req, res, next) => {
