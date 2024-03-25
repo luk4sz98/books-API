@@ -1,1 +1,242 @@
-{"id":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","name":"API","timestamp":1710266849930,"requests":[{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"27a3aec3-1036-a254-623c-ba2538325a9a","name":"Ksiażka o danym id","description":"","url":"http://localhost:3000/api/books/65f1fe04131f296955c0b1da","method":"GET","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"marianowski@gmail.com","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"5659bb70-4e9c-ac65-cbc7-baf7079a9dec","name":"Usunięcie ksiązki","description":"","url":"http://localhost:3000/api/books/65febe72d8de23d6774ce8d0","method":"DELETE","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n","data":[],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1711279506706},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"58563555-6aff-f64e-54d3-610f3c17126a","name":"Rejestracja","description":"","url":"http://localhost:3000/api/auth/register","method":"POST","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"lukaszwluka@interia.pl","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"6671d3fd-29d7-62af-ea30-183d9c7cd44c","name":"Ksiażka wg roku wydania","description":"","url":"http://localhost:3000/api/books/year/1997","method":"GET","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"marianowski@gmail.com","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"8322e552-a076-6f4a-ff06-949c93b52b1a","name":"Aktywacja konta","description":"","url":"http://localhost:3000/api/auth/activate/{token}","method":"GET","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"lukaszwluka@interia.pl","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"92dac025-4b7b-f71d-a2f0-9b54cec5e3e0","name":"Dodanie książki","description":"","url":"http://localhost:3000/api/books","method":"POST","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTA5OTEsImV4cCI6MTcxMTE5NDU5MX0.qaY_FUYZQ2fUdPg2uamH_MuZOYQbnjEJ7l5L99gF6Xs\n","data":[{"key":"title","value":"Nowa","type":"text"},{"key":"author","value":"Jan Kowalski","type":"text"},{"key":"category","value":"Fantasy","type":"text"},{"key":"description","value":"Fajna książka","type":"text"},{"key":"price","value":"27.55","type":"text"},{"key":"publisher","value":"Jedność","type":"text"},{"key":"releaseYear","value":"2024","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1711192370616},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"9c80a585-1cb7-00dd-dd26-707204cd341e","name":"Reaktywacja konta","description":"","url":"http://localhost:3000/api/auth/reactivate","method":"POST","headers":"","data":[{"key":"email","value":"lukaszwluka@interia.pl","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1711279190337},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"b050f2d2-046e-d11f-b72d-a2419c618f78","name":"Logowanie","description":"","url":"http://localhost:3000/api/auth/login","method":"POST","headers":"","data":[{"key":"email","value":"lukaszwluka@interia.pl","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1711188405101},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"bf344f9f-b50b-0716-f223-022d0295554f","name":"Ksiażki","description":"","url":"http://localhost:3000/api/books","method":"GET","headers":"","data":[],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"cd3ed7d0-4836-ecb8-7bfb-51970def4ed9","name":"Zaaktualizowanie książki","description":"","url":"http://localhost:3000/api/books/65febe72d8de23d6774ce8d0","method":"PUT","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTQ5NzYsImV4cCI6MTcxMTE5ODU3Nn0.VSPEtDYN-nn3jODrVOPfEifaBnd65wku9DjZ8Q-Ihl8\n","data":[{"key":"title","value":"Nowa2","type":"text"},{"key":"author","value":"Jan Kowal","type":"text"},{"key":"category","value":"Fantasy","type":"text"},{"key":"description","value":"Fajna książka","type":"text"},{"key":"price","value":"27.45","type":"text"},{"key":"publisher","value":"Jedność","type":"text"},{"key":"releaseYear","value":"2022","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1711196330173},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"e603e7ef-5caa-5579-0da5-873324a5d4cf","name":"Ksiażki o danej kategorii","description":"","url":"http://localhost:3000/api/books/category/fantasy","method":"GET","headers":"","data":[],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"edad5ff2-9896-42a7-4cef-3b846d59f7c2","name":"Resetowanie hasła - email","description":"","url":"http://localhost:3000/api/auth/password/reset","method":"POST","headers":"","data":[{"key":"email","value":"lukaszwluka@interia.pl","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d3f71a58-2932-3fc1-bec0-c79db421f4c5","id":"fb80e0aa-02cd-59c5-64c9-5a0a3289fe0a","name":"Resetowanie hasła - zmiana na nowe","description":"","url":"http://localhost:3000/api/auth/password/reset/change","method":"POST","headers":"","data":[{"key":"email","value":"lukaszwluka@interia.pl","type":"text"},{"key":"newPassword","value":"marianowski97","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2}],"order":["b050f2d2-046e-d11f-b72d-a2419c618f78","58563555-6aff-f64e-54d3-610f3c17126a","8322e552-a076-6f4a-ff06-949c93b52b1a","9c80a585-1cb7-00dd-dd26-707204cd341e","edad5ff2-9896-42a7-4cef-3b846d59f7c2","fb80e0aa-02cd-59c5-64c9-5a0a3289fe0a","27a3aec3-1036-a254-623c-ba2538325a9a","6671d3fd-29d7-62af-ea30-183d9c7cd44c","e603e7ef-5caa-5579-0da5-873324a5d4cf","bf344f9f-b50b-0716-f223-022d0295554f","92dac025-4b7b-f71d-a2f0-9b54cec5e3e0","5659bb70-4e9c-ac65-cbc7-baf7079a9dec","cd3ed7d0-4836-ecb8-7bfb-51970def4ed9"]}
+{
+  "id": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+  "name": "API",
+  "timestamp": 1710266849930,
+  "requests": [
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "27a3aec3-1036-a254-623c-ba2538325a9a",
+      "name": "Ksiażka o danym id",
+      "description": "",
+      "url": "http://localhost:3000/api/books/65f1fe04131f296955c0b1da",
+      "method": "GET",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "marianowski@gmail.com", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "5659bb70-4e9c-ac65-cbc7-baf7079a9dec",
+      "name": "Usunięcie ksiązki",
+      "description": "",
+      "url": "http://localhost:3000/api/books/65febe72d8de23d6774ce8d0",
+      "method": "DELETE",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n",
+      "data": [],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711279506706
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "58563555-6aff-f64e-54d3-610f3c17126a",
+      "name": "Rejestracja",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/register",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "6671d3fd-29d7-62af-ea30-183d9c7cd44c",
+      "name": "Ksiażka wg roku wydania",
+      "description": "",
+      "url": "http://localhost:3000/api/books/year/1997",
+      "method": "GET",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "marianowski@gmail.com", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "8322e552-a076-6f4a-ff06-949c93b52b1a",
+      "name": "Aktywacja konta",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/activate/{token}",
+      "method": "GET",
+      "headers": "",
+      "data": [
+        { "key": "firstName", "value": "Łukasz", "type": "text" },
+        { "key": "lastName", "value": "Marianowski", "type": "text" },
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "92dac025-4b7b-f71d-a2f0-9b54cec5e3e0",
+      "name": "Dodanie książki",
+      "description": "",
+      "url": "http://localhost:3000/api/books",
+      "method": "POST",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTA5OTEsImV4cCI6MTcxMTE5NDU5MX0.qaY_FUYZQ2fUdPg2uamH_MuZOYQbnjEJ7l5L99gF6Xs\n",
+      "data": [
+        { "key": "title", "value": "Nowa", "type": "text" },
+        { "key": "author", "value": "Jan Kowalski", "type": "text" },
+        { "key": "category", "value": "Fantasy", "type": "text" },
+        { "key": "description", "value": "Fajna książka", "type": "text" },
+        { "key": "price", "value": "27.55", "type": "text" },
+        { "key": "publisher", "value": "Jedność", "type": "text" },
+        { "key": "releaseYear", "value": "2024", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711192370616
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "9c80a585-1cb7-00dd-dd26-707204cd341e",
+      "name": "Reaktywacja konta",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/reactivate",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711279190337
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "b050f2d2-046e-d11f-b72d-a2419c618f78",
+      "name": "Logowanie",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/login",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711188405101
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "bf344f9f-b50b-0716-f223-022d0295554f",
+      "name": "Ksiażki",
+      "description": "",
+      "url": "http://localhost:3000/api/books",
+      "method": "GET",
+      "headers": "",
+      "data": [],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "cd3ed7d0-4836-ecb8-7bfb-51970def4ed9",
+      "name": "Zaaktualizowanie książki",
+      "description": "",
+      "url": "http://localhost:3000/api/books/65febe72d8de23d6774ce8d0",
+      "method": "PUT",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTQ5NzYsImV4cCI6MTcxMTE5ODU3Nn0.VSPEtDYN-nn3jODrVOPfEifaBnd65wku9DjZ8Q-Ihl8\n",
+      "data": [
+        { "key": "title", "value": "Nowa2", "type": "text" },
+        { "key": "author", "value": "Jan Kowal", "type": "text" },
+        { "key": "category", "value": "Fantasy", "type": "text" },
+        { "key": "description", "value": "Fajna książka", "type": "text" },
+        { "key": "price", "value": "27.45", "type": "text" },
+        { "key": "publisher", "value": "Jedność", "type": "text" },
+        { "key": "releaseYear", "value": "2022", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711196330173
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "e603e7ef-5caa-5579-0da5-873324a5d4cf",
+      "name": "Ksiażki o danej kategorii",
+      "description": "",
+      "url": "http://localhost:3000/api/books/category/fantasy",
+      "method": "GET",
+      "headers": "",
+      "data": [],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "edad5ff2-9896-42a7-4cef-3b846d59f7c2",
+      "name": "Resetowanie hasła - email",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/password/reset",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    },
+    {
+      "collectionId": "d3f71a58-2932-3fc1-bec0-c79db421f4c5",
+      "id": "fb80e0aa-02cd-59c5-64c9-5a0a3289fe0a",
+      "name": "Resetowanie hasła - zmiana na nowe",
+      "description": "",
+      "url": "http://localhost:3000/api/auth/password/reset/change",
+      "method": "POST",
+      "headers": "",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "newPassword", "value": "marianowski97", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2
+    }
+  ],
+  "order": [
+    "b050f2d2-046e-d11f-b72d-a2419c618f78",
+    "58563555-6aff-f64e-54d3-610f3c17126a",
+    "8322e552-a076-6f4a-ff06-949c93b52b1a",
+    "9c80a585-1cb7-00dd-dd26-707204cd341e",
+    "edad5ff2-9896-42a7-4cef-3b846d59f7c2",
+    "fb80e0aa-02cd-59c5-64c9-5a0a3289fe0a",
+    "27a3aec3-1036-a254-623c-ba2538325a9a",
+    "6671d3fd-29d7-62af-ea30-183d9c7cd44c",
+    "e603e7ef-5caa-5579-0da5-873324a5d4cf",
+    "bf344f9f-b50b-0716-f223-022d0295554f",
+    "92dac025-4b7b-f71d-a2f0-9b54cec5e3e0",
+    "5659bb70-4e9c-ac65-cbc7-baf7079a9dec",
+    "cd3ed7d0-4836-ecb8-7bfb-51970def4ed9"
+  ]
+}
