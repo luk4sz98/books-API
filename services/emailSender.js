@@ -18,12 +18,17 @@ class EmailSender {
         this.#baseUri = 'http://localhost:3000/api/auth/';
     }
 
-    async sendActivationEmail(email, activationToken) {
+    async sendActivationEmail(email, activationToken, additionalMsg = null) {
         const activationLink = this.#baseUri.concat(`activate/${activationToken}`)
-        const msg = this.#buildActivationMsg(email, activationLink);
+        const msg = this.#buildActivationMsg(email, activationLink, additionalMsg);
         
-        await this.#mailTransporter.sendMail(msg);
-        return true;
+        let result = true
+        this.#mailTransporter.sendMail(msg, (err) => {
+            if (err) {
+                result = false;
+            }
+        });
+        return result;
     }
 
     async sendPasswordResetEmail(email, passwordResetToken) {
@@ -34,10 +39,11 @@ class EmailSender {
         return true;
     }
 
-    #buildActivationMsg(email, activationLink) {
+    #buildActivationMsg(email, activationLink, additionalMsg) {
         const htmlText = `
             <p>Naciśnij poniższy link, aby aktywować konto w serwisie:</p>
             <p><a href="${activationLink}">${activationLink}</a></p>
+            <p>${additionalMsg}</p>
         `
         const subject = 'Aktywacja konta'
 

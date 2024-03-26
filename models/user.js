@@ -13,10 +13,19 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.toDto = function() {
-  const { password, activationToken, refreshToken, ...userDto } = this.toObject();
+  const { password, refreshToken, ...userDto } = this.toObject();
   return userDto;
 };
 
 const UserModel = mongoose.model('User', userSchema);
+
+UserModel.createUser = function(firstName, lastName, email, password) {
+  return new UserModel({
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: password
+  });
+};
 
 module.exports = UserModel;

@@ -1,5 +1,6 @@
 const AccountStatus = require('../models/accountStatus');
 const UserModel = require('../models/user');
+const UserRole = require('../models/userRole');
 
 const checkStatus = async (req, res, next) => {
     try {
@@ -20,6 +21,19 @@ const checkStatus = async (req, res, next) => {
     }
 }
 
+const isAdminRole = async (req, res, next) => {
+    try {
+        const user = req.user;
+        if (user.role === UserRole.STANDARD) {
+            return res.sendStatus(403);
+        }
+        next();
+    } catch (error) {
+        return next(error);
+    }
+}
+
 module.exports = {
-    checkStatus
+    checkStatus,
+    isAdminRole
 };

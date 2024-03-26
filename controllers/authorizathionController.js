@@ -64,7 +64,7 @@ class AuthController {
             }
 
             const newUser = await this.#createUser(firstName, lastName, email, password)
-            const activationToken = this.#securityManager.createActivationToken({ email: newUser.email }, true);
+            const activationToken = this.#securityManager.createActivationToken({ email: newUser.email });
             const result = await this.#emailSender
                 .sendActivationEmail(newUser.email, activationToken);
 

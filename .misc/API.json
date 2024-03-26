@@ -21,6 +21,20 @@
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "1c381369-d820-a995-30f2-4431fda74d37",
+      "name": "Zmiana roli usera",
+      "description": "Ustawia rolę danego usera.\nId usera należy przesłać w url a rolę w body.\n0 - standardowy user\n1 - admin",
+      "url": "http://localhost:3000/api/admin/users/660322c17e6289008d3346e3",
+      "method": "PATCH",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODM3MjksImV4cCI6MTcxMTQ4NDMyOX0.w4Rpv_onLIClqHfgL0biieDbVC7HnnshAA-Mw4IUzx8\n",
+      "data": [{ "key": "userRole", "value": "1", "type": "text" }],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711483877059
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
       "id": "51f2f3b2-6c0e-f050-9cc7-bfa286c2fee8",
       "name": "Odświeżenie access tokenu",
       "description": "Endpoint służący do odświeżenia accessTokenu przy pomocy refreshTokenu. ",
@@ -114,6 +128,20 @@
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "7e0a8b97-04c7-bf3f-df01-35a0a6ce4565",
+      "name": "Usunięcie użytkownika",
+      "description": "Usuwa użytkownika na podstawie przesłąnego id w parametrze.\nTylko dla adminów",
+      "url": "http://localhost:3000/api/admin/users/660322c17e6289008d3346e3",
+      "method": "DELETE",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODI1NTgsImV4cCI6MTcxMTQ4MzE1OH0.VfiK1WLKlx8VwLMBhpKcpZN0TxKA1z9r3Uk-UicZ4EE\n",
+      "data": [],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711483427467
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
@@ -228,6 +256,24 @@
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "d9b197e3-1c45-2e85-b8fa-c5ae83722195",
+      "name": "Utworzenie usera",
+      "description": "Tworzy użytkownika z tymczasowym hasłem. Wiadomość z linkiem aktywacyjnym zostaje przesłana na podany adres nowego usera wraz z tymczasowym hasłem.",
+      "url": "http://localhost:3000/api/admin/users",
+      "method": "POST",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODYwMTksImV4cCI6MTcxMTQ4NjYxOX0.5Kt6FOJ5meqtqQJUAIo0LkJPqFxvQZQDFWoAUBSi1mw\n",
+      "data": [
+        { "key": "firstName", "value": "Ala", "type": "text" },
+        { "key": "lastName", "value": "Kołacz", "type": "text" },
+        { "key": "email", "value": "lukaszbarca98@gmail.com", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711486768316
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
       "id": "de790ca2-e4d9-b93b-abd2-ede4abdde244",
       "name": "Aktywacja konta",
       "description": "Endpoint służący do aktywacji konta. Powinien być w zasadzie odpalany tylko poprzez kliknięcie na link w przesłanej wiadomości email. Natomiast w celach testowych można oczywiście tutaj. Zamiast {token} należy wkleić wysłany token w mailu",
@@ -243,6 +289,23 @@
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "ee22e5a6-2bb0-7438-51c3-46956c317c9d",
+      "name": "Użytkownicy",
+      "description": "Pobiera listę wszystkich użytkowników. Funkcjonalność dostępna tylko dla adminów.",
+      "url": "http://localhost:3000/api/admin/users",
+      "method": "GET",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODI1NTgsImV4cCI6MTcxMTQ4MzE1OH0.VfiK1WLKlx8VwLMBhpKcpZN0TxKA1z9r3Uk-UicZ4EE\n",
+      "data": [
+        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
+        { "key": "password", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711482628371
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
@@ -275,6 +338,10 @@
     "a1fa5725-8831-2ce3-3cb9-88f7974322dd",
     "7d4bb21d-8de1-938d-dae8-68ceb47a7423",
     "84e6e5a4-19fd-26ca-967f-9ea10636a234",
-    "d82b1a68-c5e5-728b-8d3d-3790afc0e59d"
+    "d82b1a68-c5e5-728b-8d3d-3790afc0e59d",
+    "ee22e5a6-2bb0-7438-51c3-46956c317c9d",
+    "d9b197e3-1c45-2e85-b8fa-c5ae83722195",
+    "1c381369-d820-a995-30f2-4431fda74d37",
+    "7e0a8b97-04c7-bf3f-df01-35a0a6ce4565"
   ]
 }
