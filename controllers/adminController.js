@@ -16,7 +16,7 @@ class AdminController {
         try {
             const user = req.user;
             const users = await UserModel.find({ email: { $ne: user.email } });
-            return res.status(200).json(users);
+            return res.status(200).json(users.map(x => x.toDto()));
         } catch (error) {
             next(error)
         }
