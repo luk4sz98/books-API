@@ -201,6 +201,30 @@ class AuthController {
         }
     }
 
+    async changePassword(req, res, next) {
+        try {
+            const user = req.user; // to user brany z po udanej weryfikacji tokenu..
+            const newPassword = req.body.newPassword;
+            if (!newPassword) {
+                req.status(400).json({ message: 'Brak podanego nowego hasła' });
+            }
+
+            // nie ma sensu sprawdzać czy istnieje taki user... 
+            // musi istnieć bo middleware nas przepuścił..
+            const userDb = await UserModel.findOne({ email: user.email });
+            const passwordMatch = await this.#securityManager.compareStringWithHash(newPassword, userDb.password);
+            if (passwordMatch) {
+                return res.status(400).json({ message: 'Nowe hasło jest takie samo jak obecne' });
+            }
+
+            userDb.password = await this.#securityManager.hashString(newPassword);
+            await userDb.save();
+            return res.sendStatus(204);
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async #createUser(firstName, lastName, email, password) {
         const hashedPassword = await this.#securityManager.hashString(password);
 

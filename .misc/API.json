@@ -35,6 +35,22 @@
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
+      "id": "4325728c-fc1f-63f8-f939-c83db96cf4f9",
+      "name": "Zmiana hasła",
+      "description": "Endpoint służący do zmiany hasła przez użytkownika.",
+      "url": "http://localhost:3000/api/auth/password/change",
+      "method": "POST",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE1NjQyMzMsImV4cCI6MTcxMTU2NDgzM30.JtkZuDnulYZEalFBWa0jr3F9SSD64xKg27KbrshxPKs\n",
+      "data": [
+        { "key": "newPassword", "value": "marianowski98", "type": "text" }
+      ],
+      "dataMode": "urlencoded",
+      "timestamp": 0,
+      "version": 2,
+      "time": 1711564258066
+    },
+    {
+      "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
       "id": "51f2f3b2-6c0e-f050-9cc7-bfa286c2fee8",
       "name": "Odświeżenie access tokenu",
       "description": "Endpoint służący do odświeżenia accessTokenu przy pomocy refreshTokenu. ",
@@ -332,6 +348,7 @@
     "f592deb2-8f76-58d9-d02a-0c297ae5daf6",
     "a8dfd0be-e771-2b7d-8b8f-3073aae69e45",
     "04952c4f-0819-ba27-f100-1a61617609b9",
+    "4325728c-fc1f-63f8-f939-c83db96cf4f9",
     "bbb3744c-dc16-35cc-4ae5-cdd0852dfa45",
     "7ee7c028-8683-9c94-3055-9bc1841b5c47",
     "b69d12e1-7dda-28e1-e2a6-419e287ac274",
