@@ -25,8 +25,9 @@ router.post('/password/reset', async (req, res, next) => {
     await authController.resetPassword(req, res, next);
 })
 
-router.post('/password/reset/change', async (req, res, next) => {
-    await authController.setNewPassword(req, res, next)
+router.post('/password/reset/change', jwtMiddleware.checkPwdResetToken,
+    async (req, res, next) => {
+        await authController.setNewPassword(req, res, next)
 })
 
 router.get('/activate/:token', async (req, res) => {

@@ -23,6 +23,10 @@ class SecurityManager {
         return this.#createJwtToken(payload, this.#getTokenSecretKey(TokenType.REFRESH), '30d')
     }
 
+    createPasswordResetToken(payload) {
+        return this.#createJwtToken(payload, this.#getTokenSecretKey(TokenType.PASSWORD_RESET))
+    }
+
     verifyAccessToken(token) {
         return this.#verifyJwtToken(token, this.#getTokenSecretKey(TokenType.ACCESS));
     }
@@ -33,6 +37,10 @@ class SecurityManager {
 
     verifyRefreshToken(token) {
         return this.#verifyJwtToken(token, this.#getTokenSecretKey(TokenType.REFRESH));
+    }
+
+    verifyPasswordResetToken(token) {
+        return this.#verifyJwtToken(token, this.#getTokenSecretKey(TokenType.PASSWORD_RESET));
     }
 
     generateToken() {
@@ -78,6 +86,8 @@ class SecurityManager {
                 return process.env.ACTIVATION_TOKEN_SECRET;
             case TokenType.REFRESH:
                 return process.env.REFRESH_TOKEN_SECRET;
+            case TokenType.PASSWORD_RESET:
+                return process.env.PASSWORD_RESET_TOKEN_SECRET;
             default:
                 throw new Error("Nieobsługiwany typ tokenu.");
         }

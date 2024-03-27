@@ -10,14 +10,14 @@
       "description": "",
       "url": "http://localhost:3000/api/auth/password/reset/change",
       "method": "POST",
-      "headers": "",
+      "headers": "Authorization: \n",
       "data": [
-        { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
         { "key": "newPassword", "value": "marianowski97", "type": "text" }
       ],
       "dataMode": "urlencoded",
       "timestamp": 0,
-      "version": 2
+      "version": 2,
+      "time": 1711567430959
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
@@ -47,7 +47,7 @@
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2,
-      "time": 1711564258066
+      "time": 1711567478741
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",
@@ -313,7 +313,7 @@
       "description": "Pobiera listę wszystkich użytkowników. Funkcjonalność dostępna tylko dla adminów.",
       "url": "http://localhost:3000/api/admin/users",
       "method": "GET",
-      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODI1NTgsImV4cCI6MTcxMTQ4MzE1OH0.VfiK1WLKlx8VwLMBhpKcpZN0TxKA1z9r3Uk-UicZ4EE\n",
+      "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE1NjQ1NjYsImV4cCI6MTcxMTU2NTE2Nn0.rw9SKpfshHNuB85NF0IPLZjWUE0BpPjCyyT9DxBtx-w\n",
       "data": [
         { "key": "email", "value": "lukaszwluka@interia.pl", "type": "text" },
         { "key": "password", "value": "marianowski98", "type": "text" }
@@ -321,7 +321,7 @@
       "dataMode": "urlencoded",
       "timestamp": 0,
       "version": 2,
-      "time": 1711482628371
+      "time": 1711564575207
     },
     {
       "collectionId": "70ddf017-1637-045f-4991-d6c56748cb0a",

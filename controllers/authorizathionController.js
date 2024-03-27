@@ -82,7 +82,7 @@ class AuthController {
 
     async activate(req, res) {
         const token = req.params.token;
-        const payload = this.#securityManager.verifyActivationToken(token, true);
+        const payload = this.#securityManager.verifyActivationToken(token);
         if (!payload) {
             return res.status(400).json({ message: 'Nieprawidłowy token aktywacyjny' });
         }
@@ -109,7 +109,7 @@ class AuthController {
                 return res.status(404).json({ message: 'Nieprawidłowy adres email lub konto zostało już aktywowane.'});
             }
 
-            const activationToken = this.#securityManager.createActivationToken({ email: user.email }, true);
+            const activationToken = this.#securityManager.createActivationToken({ email: user.email });
             const result = await this.#emailSender
                 .sendActivationEmail(user.email, activationToken);
             if (result) {
@@ -132,13 +132,11 @@ class AuthController {
                 return res.status(404).json({ message: 'Nieprawidłowy adres email.' });
             }
 
-            const token = this.#securityManager.generateToken();
+            const token = this.#securityManager.createPasswordResetToken({ email: email });
             const result = await this.#emailSender.sendPasswordResetEmail(email, token);
 
             if (result) {
-                res.cookie('pwdReset', token, { httpOnly: true, maxAge: 30 * 60 * 1000}) // 30min
-                   .status(200)
-                   .json({ message: 'Rozpoczęto proces resetowania hasła. '})
+                res.status(200).json({ pwdResetToken: token });
             } else {
                 res.status(500).json({ message: 'Wystąpił błąd podczas wysyłania wiadomości e-mail. Konto nie zostało utworzone' });
             }
@@ -149,29 +147,9 @@ class AuthController {
 
     async setNewPassword(req, res, next) {
         try {
-            const token = req.cookies.pwdReset;
-            if (!token || token.length == 0) {
-                return res.status(401).json({ message: 'Token wygasł.' });
-            }
-
-            const email = req.body.email;
+            const email = req.payload.email;
             const newPassword = req.body.newPassword;
-            const user = await UserModel.findOne({ email: email });
-            if (!user) {
-                return res.status(400).json({ message: 'Nieprawidłowy adres email' })
-            }
-
-            const passwordMatch = await this.#securityManager.compareStringWithHash(newPassword, user.password);
-            if (passwordMatch) {
-                return res.status(400).json({ message: 'Te same hasła' })
-            }
-
-            user.password = await this.#securityManager.hashString(newPassword);
-            await user.save();
-
-            return res.clearCookie('token')
-                .status(200)
-                .json({ message: 'Zaaktualizowano hasła' });
+            await this.#changeUserPwd(email, newPassword, res);
         } catch (error) {
             next(error)
         }
@@ -205,21 +183,8 @@ class AuthController {
         try {
             const user = req.user; // to user brany z po udanej weryfikacji tokenu..
             const newPassword = req.body.newPassword;
-            if (!newPassword) {
-                req.status(400).json({ message: 'Brak podanego nowego hasła' });
-            }
 
-            // nie ma sensu sprawdzać czy istnieje taki user... 
-            // musi istnieć bo middleware nas przepuścił..
-            const userDb = await UserModel.findOne({ email: user.email });
-            const passwordMatch = await this.#securityManager.compareStringWithHash(newPassword, userDb.password);
-            if (passwordMatch) {
-                return res.status(400).json({ message: 'Nowe hasło jest takie samo jak obecne' });
-            }
-
-            userDb.password = await this.#securityManager.hashString(newPassword);
-            await userDb.save();
-            return res.sendStatus(204);
+            await this.#changeUserPwd(user.email, newPassword, res);
         } catch (error) {
             next(error);
         }
@@ -234,6 +199,26 @@ class AuthController {
             email: email,
             password: hashedPassword,
         })
+    }
+
+    async #changeUserPwd(email, newPassword, res) {
+        if (!newPassword) {
+            res.status(400).json({ message: 'Brak podanego nowego hasła' });
+        }
+
+        const userDb = await UserModel.findOne({ email: email });
+        if (!userDb) {
+            return res.sendStatus(404) // trochę na wyrost to sprawdzenie tutaj - tokeny o to zadbają. ale dla pewności może być
+        }
+
+        const passwordMatch = await this.#securityManager.compareStringWithHash(newPassword, userDb.password);
+        if (passwordMatch) {
+            return res.status(400).json({ message: 'Nowe hasło jest takie samo jak obecne' });
+        }
+        
+        userDb.password = await this.#securityManager.hashString(newPassword);
+        await userDb.save();
+        return res.sendStatus(204);
     }
 }
 
