@@ -27,6 +27,9 @@ router.post('/users', async (req, res, next) => {
     await adminController.createUser(req, res, next);
 })
 
-//TODO: Dodanie endpointa do wysłania maila do podanych użytkowników (lista maili w body requesta)
+//endpoint do wysłania maila do podanych użytkowników (lista maili w body requesta)
+router.post('/users/email', async (req, res, next) => {
+    await adminController.sendEmailToUsers(req, res, next);
+})
 
 module.exports = router;

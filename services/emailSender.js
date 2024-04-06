@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const validator = require('email-validator');
 
 class EmailSender {
     #mailTransporter;
@@ -18,9 +19,14 @@ class EmailSender {
         this.#baseUri = 'http://localhost:3000/api/auth/';
     }
 
-    async sendActivationEmail(email, activationToken, additionalMsg = null) {
+    async sendActivationEmail(email, activationToken) {
+        const isValid = validator.validate(email);
+        if (!isValid) {
+          return false;
+        } 
+
         const activationLink = this.#baseUri.concat(`activate/${activationToken}`)
-        const msg = this.#buildActivationMsg(email, activationLink, additionalMsg);
+        const msg = this.#buildActivationMsg(email, activationLink);
         
         let result = true
         this.#mailTransporter.sendMail(msg, (err) => {
@@ -32,22 +38,38 @@ class EmailSender {
     }
 
     async sendPasswordResetEmail(email, passwordResetToken) {
-        const passwordResetLink = this.#baseUri.concat(`password/reset/${passwordResetToken}`);
+        const isValid = validator.validate(email);
+        if (!isValid) {
+          return false;
+        } 
+        const passwordResetLink = this.#baseUri.concat(`password/reset/change`);
         const msg = this.#buildResetMsg(email, passwordResetLink)
 
         await this.#mailTransporter.sendMail(msg)
         return true;
     }
 
-    #buildActivationMsg(email, activationLink, additionalMsg) {
+    async sendEmailToUsers(message, subject, emails) {
+        const splittedEmails = emails.split(',');
+        for (const email of splittedEmails) {
+            const isValid = validator.validate(email)
+            if (!isValid) {
+                return false;
+            }
+        }
+        const msg = this.#buildMsg(emails, subject, message)
+        await this.#mailTransporter.sendMail(msg)
+        return true;
+    }
+
+    #buildActivationMsg(email, activationLink) {
         const htmlText = `
             <p>Naciśnij poniższy link, aby aktywować konto w serwisie:</p>
             <p><a href="${activationLink}">${activationLink}</a></p>
-            <p>${additionalMsg}</p>
         `
         const subject = 'Aktywacja konta'
 
-        return this.#buildMsg(email, subject, activationLink, htmlText);
+        return this.#buildMsg(email, subject, htmlText);
     }
 
     #buildResetMsg(email, pwdResetLink) {
@@ -57,10 +79,10 @@ class EmailSender {
         `
         const subject = 'Resetowanie hasła'
 
-        return this.#buildMsg(email, subject, pwdResetLink, htmlText)
+        return this.#buildMsg(email, subject, htmlText)
     }
 
-    #buildMsg(email, subject, link, htmlText) {
+    #buildMsg(email, subject, htmlText) {
         return {
             to: email,
             from: 'lwserwisyweb@gmail.com',

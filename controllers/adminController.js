@@ -93,6 +93,23 @@ class AdminController {
             next(error)
         }
     }
+
+    async sendEmailToUsers(req, res, next) {
+        try {
+            const emails = req.body.emails;
+            const msg = req.body.msg;
+            const subject = req.body.subject;
+            if (!emails || !msg || !subject) {
+                return res.status(400).json({ message: 'Brak danych' });
+            }
+            const result = await this.#emailSender.sendEmailToUsers(msg, subject, emails)
+            return result 
+                ? res.sendStatus(204)
+                : res.status(400).json({ message: 'Wystąpił błąd, sprawdź czy adresy email są prawidłowe' })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = AdminController
