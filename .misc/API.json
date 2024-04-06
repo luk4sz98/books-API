@@ -1,1 +1,564 @@
-{"id":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","name":"API","timestamp":1710266849930,"requests":[{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"12a40388-d2ec-394c-837f-40c6922561ea","name":"Wysyłanie maila do userów","description":"Endpoint za pomocą, którego admin może przesłać maila do wybranych użytkoników.\nNależy podać temat, wiadomość i adresy email oddzielone przecinkiem","url":"http://localhost:3000/api/admin//users/email","method":"POST","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEwZjU1YjU5MGIwNzU0NGIwZmRlMGIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiaWF0IjoxNzEyMzg3NzM1LCJleHAiOjE3MTIzODgzMzV9.UNWeCs761d9-rlyOroFc0yxOEAGKpfzyZJS7dsHGNwI\n","data":[{"key":"emails","value":"email1,email2","type":"text"},{"key":"subject","value":"Test","type":"text"},{"key":"msg","value":"Wiadomość testowa","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712387873810},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"1939cf47-a0f5-d38b-ecf4-c73fad021660","name":"Logowanie","description":"User musi przesłać w body email oraz hasło.\nPo poprawnym logowaniu zostanie zwrócony accessToken umożliwiający dostęp do rzeczy, które wymagają autoryzacji. \nPonadto zwraca refreshToken umożliwiający odświeżenie accessTokenu jeśli wygasł bez konieczności przechodzenia przez proces logowania.\nTo gdzie będzie przechowywany accessToken zwrócony tym endpointem zależy już stricte od frontendu. \n\nZalogować mogą się tylko użytkownicy, którzy potwierdzili swoje konto.","url":"http://localhost:3000/api/auth/login","method":"POST","headers":"","data":[{"key":"email","value":"email1","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712387913390},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"1e58951c-5652-fb56-6a48-05278a119058","name":"Zmiana hasła","description":"Endpoint służący do zmiany hasła przez użytkownika.","url":"http://localhost:3000/api/auth/password/change","method":"POST","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE1NjQyMzMsImV4cCI6MTcxMTU2NDgzM30.JtkZuDnulYZEalFBWa0jr3F9SSD64xKg27KbrshxPKs\n","data":[{"key":"newPassword","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"3c19a57d-ff5e-b7a5-f181-39f08ff693a4","name":"Ksiażki","description":"","url":"http://localhost:3000/api/books","method":"GET","headers":"","data":[],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"55761409-dbf4-ade2-e3cc-9dc1f8a3f226","name":"Ksiażka o danym id","description":"","url":"http://localhost:3000/api/books/65f1fe04131f296955c0b1da","method":"GET","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"marianowski@gmail.com","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"5df9759e-b16b-3551-3029-4e3beef5a84a","name":"Użytkownicy","description":"Pobiera listę wszystkich użytkowników. Funkcjonalność dostępna tylko dla adminów.","url":"http://localhost:3000/api/admin/users","method":"GET","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE1NjQ1NjYsImV4cCI6MTcxMTU2NTE2Nn0.rw9SKpfshHNuB85NF0IPLZjWUE0BpPjCyyT9DxBtx-w\n","data":[{"key":"email","value":"lukaszwluka@interia.pl","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"6ae0a296-b9d7-cadd-3682-17886e5d44e6","name":"Zaaktualizowanie książki","description":"Wymaga autoryzacji prawidłowym access tokenem.","url":"http://localhost:3000/api/books/65febe72d8de23d6774ce8d0","method":"PUT","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTQ5NzYsImV4cCI6MTcxMTE5ODU3Nn0.VSPEtDYN-nn3jODrVOPfEifaBnd65wku9DjZ8Q-Ihl8\n","data":[{"key":"title","value":"Nowa2","type":"text"},{"key":"author","value":"Jan Kowal","type":"text"},{"key":"category","value":"Fantasy","type":"text"},{"key":"description","value":"Fajna książka","type":"text"},{"key":"price","value":"27.45","type":"text"},{"key":"publisher","value":"Jedność","type":"text"},{"key":"releaseYear","value":"2022","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"73b6476a-6351-901e-e522-7ce9a95b474e","name":"Reaktywacja konta","description":"Endpoint służący do ponownego wysłania linka aktywacyjnego konto na podany adres email.","url":"http://localhost:3000/api/auth/reactivate","method":"POST","headers":"","data":[{"key":"email","value":"email1","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712387970438},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"7e32f805-d6ce-2e9c-d1ce-c723c5ce30a9","name":"Wylogowanie ","description":"Proces wylogowania wymaga podania refreshTokenu. Jeśli token ten jest prawidłowy i zgadza się z tym co siedzi w bazie, to zostanie on usunięty z bazy co automatycznie deautoryzuje. Czyli dany user będzie musiał się zalogować ponownie.","url":"http://localhost:3000/api/auth/logout","method":"POST","headers":"","data":[{"key":"refreshToken","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEzODUxMTksImV4cCI6MTcxMzk3NzExOX0.swEp-Den42BZ4sW_Rwi2Gca8g0HYrsdEtVsHzif-qn0","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712387916273},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"920dcf1a-29b4-efed-6d00-866b9d1885c7","name":"Utworzenie usera","description":"Tworzy użytkownika z tymczasowym hasłem. Wiadomość z linkiem aktywacyjnym zostaje przesłana na podany adres nowego usera wraz z tymczasowym hasłem.","url":"http://localhost:3000/api/admin/users","method":"POST","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODYwMTksImV4cCI6MTcxMTQ4NjYxOX0.5Kt6FOJ5meqtqQJUAIo0LkJPqFxvQZQDFWoAUBSi1mw\n","data":[{"key":"firstName","value":"Ala","type":"text"},{"key":"lastName","value":"Kołacz","type":"text"},{"key":"email","value":"email1","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712388036874},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"9fd008f3-1b7d-607a-cf49-89de8098b18d","name":"Aktywacja konta","description":"Endpoint służący do aktywacji konta. Powinien być w zasadzie odpalany tylko poprzez kliknięcie na link w przesłanej wiadomości email. Natomiast w celach testowych można oczywiście tutaj. Zamiast {token} należy wkleić wysłany token w mailu","url":"http://localhost:3000/api/auth/activate/{token}","method":"GET","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"lukaszwluka@interia.pl","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"ac77ce54-7834-34c8-874d-617c41fe9c8b","name":"Odświeżenie access tokenu","description":"Endpoint służący do odświeżenia accessTokenu przy pomocy refreshTokenu. ","url":"http://localhost:3000/api/auth/token","method":"POST","headers":"","data":[{"key":"refreshToken","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEzODM4NzUsImV4cCI6MTcxMzk3NTg3NX0.i81JkFSINlV3uqF3bguvb5ap_iLxs9D4BsZnYX5ci7M","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712387918886},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"b77452d7-36ec-b206-df5b-83f2787bd77e","name":"Resetowanie hasła - zmiana na nowe","description":"","url":"http://localhost:3000/api/auth/password/reset/change","method":"POST","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n","data":[{"key":"newPassword","value":"marianowski97","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712399357884},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"c8f7e72c-d2b2-7167-9c4a-a28d9283ee70","name":"Dodanie książki","description":"Wymaga autoryzacji prawidłowym access tokenem.","url":"http://localhost:3000/api/books","method":"POST","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTA5OTEsImV4cCI6MTcxMTE5NDU5MX0.qaY_FUYZQ2fUdPg2uamH_MuZOYQbnjEJ7l5L99gF6Xs\n","data":[{"key":"title","value":"Nowa","type":"text"},{"key":"author","value":"Jan Kowalski","type":"text"},{"key":"category","value":"Fantasy","type":"text"},{"key":"description","value":"Fajna książka","type":"text"},{"key":"price","value":"27.55","type":"text"},{"key":"publisher","value":"Jedność","type":"text"},{"key":"releaseYear","value":"2024","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"cba14535-fc66-a263-74ac-09aa29548afb","name":"Rejestracja","description":"Endpoint służący do rejestracji. Nowo utworzone konto ma status nieaktywny uniemożlwiający logowanie. By móc się zalogować należy potwierdzić konto klikając w link przesłany na adres email podany w body tego requesta.","url":"http://localhost:3000/api/auth/register","method":"POST","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"email1","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712387926229},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"cc8b4821-5ab3-5908-f473-72ca85de0450","name":"Usunięcie użytkownika","description":"Usuwa użytkownika na podstawie przesłąnego id w parametrze.\nTylko dla adminów","url":"http://localhost:3000/api/admin/users/660322c17e6289008d3346e3","method":"DELETE","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODI1NTgsImV4cCI6MTcxMTQ4MzE1OH0.VfiK1WLKlx8VwLMBhpKcpZN0TxKA1z9r3Uk-UicZ4EE\n","data":[],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"f36539af-a27e-2f46-5289-9a547c46deaa","name":"Resetowanie hasła - email","description":"","url":"http://localhost:3000/api/auth/password/reset","method":"POST","headers":"","data":[{"key":"email","value":"email1","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2,"time":1712387992710},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"f824dfb2-bb9d-0906-27d5-7e66521c088b","name":"Ksiażki o danej kategorii","description":"","url":"http://localhost:3000/api/books/category/fantasy","method":"GET","headers":"","data":[],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"f8e6da7b-ba12-b0c9-d56f-71b2509bb9f6","name":"Ksiażka wg roku wydania","description":"","url":"http://localhost:3000/api/books/year/1997","method":"GET","headers":"","data":[{"key":"firstName","value":"Łukasz","type":"text"},{"key":"lastName","value":"Marianowski","type":"text"},{"key":"email","value":"marianowski@gmail.com","type":"text"},{"key":"password","value":"marianowski98","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"f9148b10-6b7b-f6d9-84b2-32a2c6258aeb","name":"Usunięcie ksiązki","description":"Wymaga autoryzacji prawidłowym access tokenem.","url":"http://localhost:3000/api/books/65febe72d8de23d6774ce8d0","method":"DELETE","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n","data":[],"dataMode":"urlencoded","timestamp":0,"version":2},{"collectionId":"d218ff86-4c8b-9ce3-7024-c9529f1394fa","id":"ff7f4b6b-13d0-3db6-9ec5-0f8ce537dd43","name":"Zmiana roli usera","description":"Ustawia rolę danego usera.\nId usera należy przesłać w url a rolę w body.\n0 - standardowy user\n1 - admin","url":"http://localhost:3000/api/admin/users/660322c17e6289008d3346e3","method":"PATCH","headers":"Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODM3MjksImV4cCI6MTcxMTQ4NDMyOX0.w4Rpv_onLIClqHfgL0biieDbVC7HnnshAA-Mw4IUzx8\n","data":[{"key":"userRole","value":"1","type":"text"}],"dataMode":"urlencoded","timestamp":0,"version":2}],"order":["1939cf47-a0f5-d38b-ecf4-c73fad021660","7e32f805-d6ce-2e9c-d1ce-c723c5ce30a9","ac77ce54-7834-34c8-874d-617c41fe9c8b","cba14535-fc66-a263-74ac-09aa29548afb","9fd008f3-1b7d-607a-cf49-89de8098b18d","73b6476a-6351-901e-e522-7ce9a95b474e","f36539af-a27e-2f46-5289-9a547c46deaa","b77452d7-36ec-b206-df5b-83f2787bd77e","1e58951c-5652-fb56-6a48-05278a119058","55761409-dbf4-ade2-e3cc-9dc1f8a3f226","f8e6da7b-ba12-b0c9-d56f-71b2509bb9f6","f824dfb2-bb9d-0906-27d5-7e66521c088b","3c19a57d-ff5e-b7a5-f181-39f08ff693a4","c8f7e72c-d2b2-7167-9c4a-a28d9283ee70","f9148b10-6b7b-f6d9-84b2-32a2c6258aeb","6ae0a296-b9d7-cadd-3682-17886e5d44e6","5df9759e-b16b-3551-3029-4e3beef5a84a","920dcf1a-29b4-efed-6d00-866b9d1885c7","ff7f4b6b-13d0-3db6-9ec5-0f8ce537dd43","cc8b4821-5ab3-5908-f473-72ca85de0450","12a40388-d2ec-394c-837f-40c6922561ea"]}
+{
+    "id": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+    "name": "API",
+    "timestamp": 1710266849930,
+    "requests": [
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "12a40388-d2ec-394c-837f-40c6922561ea",
+            "name": "Wysyłanie maila do userów",
+            "description": "Endpoint za pomocą, którego admin może przesłać maila do wybranych użytkoników.\nNależy podać temat, wiadomość i adresy email oddzielone przecinkiem",
+            "url": "http://localhost:3000/api/admin//users/email",
+            "method": "POST",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEwZjU1YjU5MGIwNzU0NGIwZmRlMGIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiaWF0IjoxNzEyMzg3NzM1LCJleHAiOjE3MTIzODgzMzV9.UNWeCs761d9-rlyOroFc0yxOEAGKpfzyZJS7dsHGNwI\n",
+            "data": [
+                {
+                    "key": "emails",
+                    "value": "email1,email2",
+                    "type": "text"
+                },
+                {
+                    "key": "subject",
+                    "value": "Test",
+                    "type": "text"
+                },
+                {
+                    "key": "msg",
+                    "value": "Wiadomość testowa",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712387873810
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "1939cf47-a0f5-d38b-ecf4-c73fad021660",
+            "name": "Logowanie",
+            "description": "User musi przesłać w body email oraz hasło.\nPo poprawnym logowaniu zostanie zwrócony accessToken umożliwiający dostęp do rzeczy, które wymagają autoryzacji. \nPonadto zwraca refreshToken umożliwiający odświeżenie accessTokenu jeśli wygasł bez konieczności przechodzenia przez proces logowania.\nTo gdzie będzie przechowywany accessToken zwrócony tym endpointem zależy już stricte od frontendu. \n\nZalogować mogą się tylko użytkownicy, którzy potwierdzili swoje konto.",
+            "url": "http://localhost:3000/api/auth/login",
+            "method": "POST",
+            "headers": "",
+            "data": [
+                {
+                    "key": "email",
+                    "value": "email1",
+                    "type": "text"
+                },
+                {
+                    "key": "password",
+                    "value": "marianowski98",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712387913390
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "1e58951c-5652-fb56-6a48-05278a119058",
+            "name": "Zmiana hasła",
+            "description": "Endpoint służący do zmiany hasła przez użytkownika.",
+            "url": "http://localhost:3000/api/auth/password/change",
+            "method": "POST",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE1NjQyMzMsImV4cCI6MTcxMTU2NDgzM30.JtkZuDnulYZEalFBWa0jr3F9SSD64xKg27KbrshxPKs\n",
+            "data": [
+                {
+                    "key": "newPassword",
+                    "value": "marianowski98",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "3c19a57d-ff5e-b7a5-f181-39f08ff693a4",
+            "name": "Ksiażki",
+            "description": "",
+            "url": "http://localhost:3000/api/books",
+            "method": "GET",
+            "headers": "",
+            "data": [],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "55761409-dbf4-ade2-e3cc-9dc1f8a3f226",
+            "name": "Ksiażka o danym id",
+            "description": "",
+            "url": "http://localhost:3000/api/books/65f1fe04131f296955c0b1da",
+            "method": "GET",
+            "headers": "",
+            "data": [
+                {
+                    "key": "firstName",
+                    "value": "Łukasz",
+                    "type": "text"
+                },
+                {
+                    "key": "lastName",
+                    "value": "Marianowski",
+                    "type": "text"
+                },
+                {
+                    "key": "email",
+                    "value": "marianowski@gmail.com",
+                    "type": "text"
+                },
+                {
+                    "key": "password",
+                    "value": "marianowski98",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "5df9759e-b16b-3551-3029-4e3beef5a84a",
+            "name": "Użytkownicy",
+            "description": "Pobiera listę wszystkich użytkowników. Funkcjonalność dostępna tylko dla adminów.",
+            "url": "http://localhost:3000/api/admin/users",
+            "method": "GET",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE1NjQ1NjYsImV4cCI6MTcxMTU2NTE2Nn0.rw9SKpfshHNuB85NF0IPLZjWUE0BpPjCyyT9DxBtx-w\n",
+            "data": [
+                {
+                    "key": "email",
+                    "value": "luk@gmail.com",
+                    "type": "text"
+                },
+                {
+                    "key": "password",
+                    "value": "marianowski98",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "6ae0a296-b9d7-cadd-3682-17886e5d44e6",
+            "name": "Zaaktualizowanie książki",
+            "description": "Wymaga autoryzacji prawidłowym access tokenem.",
+            "url": "http://localhost:3000/api/books/65febe72d8de23d6774ce8d0",
+            "method": "PUT",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTQ5NzYsImV4cCI6MTcxMTE5ODU3Nn0.VSPEtDYN-nn3jODrVOPfEifaBnd65wku9DjZ8Q-Ihl8\n",
+            "data": [
+                {
+                    "key": "title",
+                    "value": "Nowa2",
+                    "type": "text"
+                },
+                {
+                    "key": "author",
+                    "value": "Jan Kowal",
+                    "type": "text"
+                },
+                {
+                    "key": "category",
+                    "value": "Fantasy",
+                    "type": "text"
+                },
+                {
+                    "key": "description",
+                    "value": "Fajna książka",
+                    "type": "text"
+                },
+                {
+                    "key": "price",
+                    "value": "27.45",
+                    "type": "text"
+                },
+                {
+                    "key": "publisher",
+                    "value": "Jedność",
+                    "type": "text"
+                },
+                {
+                    "key": "releaseYear",
+                    "value": "2022",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "73b6476a-6351-901e-e522-7ce9a95b474e",
+            "name": "Reaktywacja konta",
+            "description": "Endpoint służący do ponownego wysłania linka aktywacyjnego konto na podany adres email.",
+            "url": "http://localhost:3000/api/auth/reactivate",
+            "method": "POST",
+            "headers": "",
+            "data": [
+                {
+                    "key": "email",
+                    "value": "email1",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712387970438
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "7e32f805-d6ce-2e9c-d1ce-c723c5ce30a9",
+            "name": "Wylogowanie ",
+            "description": "Proces wylogowania wymaga podania refreshTokenu. Jeśli token ten jest prawidłowy i zgadza się z tym co siedzi w bazie, to zostanie on usunięty z bazy co automatycznie deautoryzuje. Czyli dany user będzie musiał się zalogować ponownie.",
+            "url": "http://localhost:3000/api/auth/logout",
+            "method": "POST",
+            "headers": "",
+            "data": [
+                {
+                    "key": "refreshToken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEzODUxMTksImV4cCI6MTcxMzk3NzExOX0.swEp-Den42BZ4sW_Rwi2Gca8g0HYrsdEtVsHzif-qn0",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712387916273
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "920dcf1a-29b4-efed-6d00-866b9d1885c7",
+            "name": "Utworzenie usera",
+            "description": "Tworzy użytkownika z tymczasowym hasłem. Wiadomość z linkiem aktywacyjnym zostaje przesłana na podany adres nowego usera wraz z tymczasowym hasłem.",
+            "url": "http://localhost:3000/api/admin/users",
+            "method": "POST",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODYwMTksImV4cCI6MTcxMTQ4NjYxOX0.5Kt6FOJ5meqtqQJUAIo0LkJPqFxvQZQDFWoAUBSi1mw\n",
+            "data": [
+                {
+                    "key": "firstName",
+                    "value": "Ala",
+                    "type": "text"
+                },
+                {
+                    "key": "lastName",
+                    "value": "Kołacz",
+                    "type": "text"
+                },
+                {
+                    "key": "email",
+                    "value": "email1",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712388036874
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "9fd008f3-1b7d-607a-cf49-89de8098b18d",
+            "name": "Aktywacja konta",
+            "description": "Endpoint służący do aktywacji konta. Powinien być w zasadzie odpalany tylko poprzez kliknięcie na link w przesłanej wiadomości email. Natomiast w celach testowych można oczywiście tutaj. Zamiast {token} należy wkleić wysłany token w mailu",
+            "url": "http://localhost:3000/api/auth/activate/{token}",
+            "method": "GET",
+            "headers": "",
+            "data": [
+                {
+                    "key": "firstName",
+                    "value": "Łukasz",
+                    "type": "text"
+                },
+                {
+                    "key": "lastName",
+                    "value": "Marianowski",
+                    "type": "text"
+                },
+                {
+                    "key": "email",
+                    "value": "luk@gmail.com",
+                    "type": "text"
+                },
+                {
+                    "key": "password",
+                    "value": "marianowski98",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "ac77ce54-7834-34c8-874d-617c41fe9c8b",
+            "name": "Odświeżenie access tokenu",
+            "description": "Endpoint służący do odświeżenia accessTokenu przy pomocy refreshTokenu. ",
+            "url": "http://localhost:3000/api/auth/token",
+            "method": "POST",
+            "headers": "",
+            "data": [
+                {
+                    "key": "refreshToken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEzODM4NzUsImV4cCI6MTcxMzk3NTg3NX0.i81JkFSINlV3uqF3bguvb5ap_iLxs9D4BsZnYX5ci7M",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712387918886
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "b77452d7-36ec-b206-df5b-83f2787bd77e",
+            "name": "Resetowanie hasła - zmiana na nowe",
+            "description": "",
+            "url": "http://localhost:3000/api/auth/password/reset/change",
+            "method": "POST",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n",
+            "data": [
+                {
+                    "key": "newPassword",
+                    "value": "marianowski97",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712399357884
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "c8f7e72c-d2b2-7167-9c4a-a28d9283ee70",
+            "name": "Dodanie książki",
+            "description": "Wymaga autoryzacji prawidłowym access tokenem.",
+            "url": "http://localhost:3000/api/books",
+            "method": "POST",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTk5ZWMwYmZhYjFiMTIyMTYxNmIiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTExOTA5OTEsImV4cCI6MTcxMTE5NDU5MX0.qaY_FUYZQ2fUdPg2uamH_MuZOYQbnjEJ7l5L99gF6Xs\n",
+            "data": [
+                {
+                    "key": "title",
+                    "value": "Nowa",
+                    "type": "text"
+                },
+                {
+                    "key": "author",
+                    "value": "Jan Kowalski",
+                    "type": "text"
+                },
+                {
+                    "key": "category",
+                    "value": "Fantasy",
+                    "type": "text"
+                },
+                {
+                    "key": "description",
+                    "value": "Fajna książka",
+                    "type": "text"
+                },
+                {
+                    "key": "price",
+                    "value": "27.55",
+                    "type": "text"
+                },
+                {
+                    "key": "publisher",
+                    "value": "Jedność",
+                    "type": "text"
+                },
+                {
+                    "key": "releaseYear",
+                    "value": "2024",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "cba14535-fc66-a263-74ac-09aa29548afb",
+            "name": "Rejestracja",
+            "description": "Endpoint służący do rejestracji. Nowo utworzone konto ma status nieaktywny uniemożlwiający logowanie. By móc się zalogować należy potwierdzić konto klikając w link przesłany na adres email podany w body tego requesta.",
+            "url": "http://localhost:3000/api/auth/register",
+            "method": "POST",
+            "headers": "",
+            "data": [
+                {
+                    "key": "firstName",
+                    "value": "Łukasz",
+                    "type": "text"
+                },
+                {
+                    "key": "lastName",
+                    "value": "Marianowski",
+                    "type": "text"
+                },
+                {
+                    "key": "email",
+                    "value": "email1",
+                    "type": "text"
+                },
+                {
+                    "key": "password",
+                    "value": "marianowski98",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712387926229
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "cc8b4821-5ab3-5908-f473-72ca85de0450",
+            "name": "Usunięcie użytkownika",
+            "description": "Usuwa użytkownika na podstawie przesłąnego id w parametrze.\nTylko dla adminów",
+            "url": "http://localhost:3000/api/admin/users/660322c17e6289008d3346e3",
+            "method": "DELETE",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODI1NTgsImV4cCI6MTcxMTQ4MzE1OH0.VfiK1WLKlx8VwLMBhpKcpZN0TxKA1z9r3Uk-UicZ4EE\n",
+            "data": [],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "f36539af-a27e-2f46-5289-9a547c46deaa",
+            "name": "Resetowanie hasła - email",
+            "description": "",
+            "url": "http://localhost:3000/api/auth/password/reset",
+            "method": "POST",
+            "headers": "",
+            "data": [
+                {
+                    "key": "email",
+                    "value": "email1",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2,
+            "time": 1712387992710
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "f824dfb2-bb9d-0906-27d5-7e66521c088b",
+            "name": "Ksiażki o danej kategorii",
+            "description": "",
+            "url": "http://localhost:3000/api/books/category/fantasy",
+            "method": "GET",
+            "headers": "",
+            "data": [],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "f8e6da7b-ba12-b0c9-d56f-71b2509bb9f6",
+            "name": "Ksiażka wg roku wydania",
+            "description": "",
+            "url": "http://localhost:3000/api/books/year/1997",
+            "method": "GET",
+            "headers": "",
+            "data": [
+                {
+                    "key": "firstName",
+                    "value": "Łukasz",
+                    "type": "text"
+                },
+                {
+                    "key": "lastName",
+                    "value": "Marianowski",
+                    "type": "text"
+                },
+                {
+                    "key": "email",
+                    "value": "marianowski@gmail.com",
+                    "type": "text"
+                },
+                {
+                    "key": "password",
+                    "value": "marianowski98",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "f9148b10-6b7b-f6d9-84b2-32a2c6258aeb",
+            "name": "Usunięcie ksiązki",
+            "description": "Wymaga autoryzacji prawidłowym access tokenem.",
+            "url": "http://localhost:3000/api/books/65febe72d8de23d6774ce8d0",
+            "method": "DELETE",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAwMGM4N2JmNjNkMmY2OGI1ZTJkNDgiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MCwiX192IjowLCJpYXQiOjE3MTEyNzk0OTcsImV4cCI6MTcxMTI4MDA5N30.x55qLHNyau49XVOC5ClzDD95JBtD_Gmvk9rzSh1t_9s\n",
+            "data": [],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        },
+        {
+            "collectionId": "d218ff86-4c8b-9ce3-7024-c9529f1394fa",
+            "id": "ff7f4b6b-13d0-3db6-9ec5-0f8ce537dd43",
+            "name": "Zmiana roli usera",
+            "description": "Ustawia rolę danego usera.\nId usera należy przesłać w url a rolę w body.\n0 - standardowy user\n1 - admin",
+            "url": "http://localhost:3000/api/admin/users/660322c17e6289008d3346e3",
+            "method": "PATCH",
+            "headers": "Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjAxOWQ3MGI2ZmJkZTc3MzFjZTQyMDkiLCJmaXJzdE5hbWUiOiLFgXVrYXN6IiwibGFzdE5hbWUiOiJNYXJpYW5vd3NraSIsImVtYWlsIjoibHVrYXN6d2x1a2FAaW50ZXJpYS5wbCIsInN0YXR1cyI6MSwicm9sZSI6MSwiX192IjowLCJpYXQiOjE3MTE0ODM3MjksImV4cCI6MTcxMTQ4NDMyOX0.w4Rpv_onLIClqHfgL0biieDbVC7HnnshAA-Mw4IUzx8\n",
+            "data": [
+                {
+                    "key": "userRole",
+                    "value": "1",
+                    "type": "text"
+                }
+            ],
+            "dataMode": "urlencoded",
+            "timestamp": 0,
+            "version": 2
+        }
+    ],
+    "order": [
+        "1939cf47-a0f5-d38b-ecf4-c73fad021660",
+        "7e32f805-d6ce-2e9c-d1ce-c723c5ce30a9",
+        "ac77ce54-7834-34c8-874d-617c41fe9c8b",
+        "cba14535-fc66-a263-74ac-09aa29548afb",
+        "9fd008f3-1b7d-607a-cf49-89de8098b18d",
+        "73b6476a-6351-901e-e522-7ce9a95b474e",
+        "f36539af-a27e-2f46-5289-9a547c46deaa",
+        "b77452d7-36ec-b206-df5b-83f2787bd77e",
+        "1e58951c-5652-fb56-6a48-05278a119058",
+        "55761409-dbf4-ade2-e3cc-9dc1f8a3f226",
+        "f8e6da7b-ba12-b0c9-d56f-71b2509bb9f6",
+        "f824dfb2-bb9d-0906-27d5-7e66521c088b",
+        "3c19a57d-ff5e-b7a5-f181-39f08ff693a4",
+        "c8f7e72c-d2b2-7167-9c4a-a28d9283ee70",
+        "f9148b10-6b7b-f6d9-84b2-32a2c6258aeb",
+        "6ae0a296-b9d7-cadd-3682-17886e5d44e6",
+        "5df9759e-b16b-3551-3029-4e3beef5a84a",
+        "920dcf1a-29b4-efed-6d00-866b9d1885c7",
+        "ff7f4b6b-13d0-3db6-9ec5-0f8ce537dd43",
+        "cc8b4821-5ab3-5908-f473-72ca85de0450",
+        "12a40388-d2ec-394c-837f-40c6922561ea"
+    ]
+}

@@ -97,6 +97,12 @@ class AdminController {
     async sendEmailToUsers(req, res, next) {
         try {
             const emails = req.body.emails;
+            for (const email of emails.split(',')) {
+                const user = await UserModel.findOne({ email: email })
+                if (!user) {
+                    return res.status(400).json({ message: `Nie istnieje user o podanym adresie email: ${email}` });
+                }
+            }
             const msg = req.body.msg;
             const subject = req.body.subject;
             if (!emails || !msg || !subject) {
