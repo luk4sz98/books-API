@@ -41,9 +41,9 @@ router.post('/password/reset', async (req, res, next) => {
 // należy w headerze autoryzacyjnym przesłać token do resetu hasła, 
 // który to jest zwracany w poprzednim endpoincie
 //
-// !!! WAŻNE BEZ FRONTENDU NALEŻY UŻYĆ ENDPOINTU POST UDERZAJĄĆ NP W PORGRAMOWNIE POSTMAN
+// !!! WAŻNE BEZ FRONTENDU NALEŻY UŻYĆ ENDPOINTU POST UDERZAJĄĆ POSTMANIE
 // Z RACJI, ŻE FRONTEND BYŁBY ODPOWIEDZIALNY ZA PRZECHWYCENIE PO KLIKNIĘCIU W LINK PRZESŁANY NA MAILA
-// I WYŚWIETLENIE ODPOWIEDNIEGO FORMULARZU, KTÓRY NASTEPNIE UDERZAŁBY WŁASNIE NA ENDPOINT POST
+// I WYŚWIETLENIE ODPOWIEDNIEGO FORMULARZA, KTÓRY NASTEPNIE UDERZAŁBY WŁASNIE NA ENDPOINT POST
 router.get('/password/reset/change', (req, res, next) => {
     res.status(200).send({ message: 'Brak frontendu, proszę użyć tego samego endpointu ale w wersji POST'})
 })
